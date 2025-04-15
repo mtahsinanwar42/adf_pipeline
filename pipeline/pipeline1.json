@@ -27,6 +27,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"do_transformation": {
+				"type": "int",
+				"defaultValue": 0
+			}
+		},
 		"annotations": []
 	}
 }
