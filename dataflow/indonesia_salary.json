@@ -82,7 +82,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> source2",
 				"join1 filter(and(equals(source1@country, \"Indonesia\"), greater(source1@salary, 100000))) ~> filter1",
-				"filter1 derive(id_even = equals(mod(source1@id, 2), 0)) ~> ideven",
+				"filter1 derive(id_even = equals(mod(source1@id, 2), $mod_value)) ~> ideven",
 				"source1, source2 join(source1@first_name == source2@first_name,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",

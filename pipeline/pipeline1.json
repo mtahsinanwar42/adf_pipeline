@@ -88,7 +88,13 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "indonesia_salary",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"parameters": {
+										"mod_value": {
+											"value": "@pipeline().parameters.mod_value",
+											"type": "Expression"
+										}
+									}
 								},
 								"compute": {
 									"coreCount": 8,
