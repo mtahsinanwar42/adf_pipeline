@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"expression": {
+						"value": "@equals(pipeline().parameters.do_transformation,0 )",
+						"type": "Expression"
+					},
 					"ifFalseActivities": [
 						{
 							"name": "Copy data1",
@@ -22,8 +26,48 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"enableStaging": false
-							}
+								"source": {
+									"type": "ParquetSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "ParquetReadSettings"
+									}
+								},
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "userdata1",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "destuserdata1",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					],
 					"ifTrueActivities": [
@@ -62,6 +106,10 @@
 			"do_transformation": {
 				"type": "int",
 				"defaultValue": 0
+			},
+			"mod_value": {
+				"type": "int",
+				"defaultValue": 1
 			}
 		},
 		"annotations": []
