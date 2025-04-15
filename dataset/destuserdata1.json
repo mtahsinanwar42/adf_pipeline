@@ -1,0 +1,19 @@
+{
+	"name": "destuserdata1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_engdstorage004",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "destination"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
