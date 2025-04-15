@@ -40,6 +40,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     mod_value as integer (0)",
+				"}",
 				"source(output(",
 				"          registration_dttm as timestamp,",
 				"          id as integer,",
