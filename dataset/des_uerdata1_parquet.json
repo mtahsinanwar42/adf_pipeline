@@ -1,0 +1,19 @@
+{
+	"name": "des_uerdata1_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "engdstorage004",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "destination"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
