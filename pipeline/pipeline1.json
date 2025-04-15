@@ -88,7 +88,10 @@
 									"referenceName": "indosalaries",
 									"type": "DataFlowReference",
 									"parameters": {
-										"mod_value": "0"
+										"mod_value": {
+											"value": "@pipeline().parameters.mod_valuepipeline().parameters.mod_valuepipeline().parameters.mod_value",
+											"type": "Expression"
+										}
 									}
 								},
 								"compute": {
