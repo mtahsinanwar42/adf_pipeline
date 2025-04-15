@@ -1,0 +1,22 @@
+{
+	"name": "DestUserDataCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_engdstorage004",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "destination"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
