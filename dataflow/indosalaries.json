@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "indosalaries",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -12,7 +12,15 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "destuserdata1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filter1"
@@ -42,7 +50,12 @@
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> source1",
 				"source1 filter(and(equals(country, \"Indonesia\"),greater(salary, 1000))) ~> filter1",
-				"filter1 derive(column1 = mod(id, 2)==0) ~> idEven"
+				"filter1 derive(column1 = mod(id, 2)==0) ~> idEven",
+				"idEven sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
