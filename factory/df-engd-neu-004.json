@@ -1,0 +1,9 @@
+{
+	"name": "df-engd-neu-004",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "38bfdf19-4b95-40e9-92c5-6c7ab8c9bf51",
+		"tenantId": "cc7df247-60ce-4a0f-9d75-704cf60efc64"
+	}
+}
