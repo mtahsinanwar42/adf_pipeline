@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "destuserdata1",
+						"referenceName": "DestUserDataCSV",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -53,7 +53,6 @@
 				"filter1 derive(column1 = mod(id, 2)==0) ~> idEven",
 				"idEven sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     format: 'parquet',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
