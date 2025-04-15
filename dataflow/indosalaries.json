@@ -34,6 +34,9 @@
 				},
 				{
 					"name": "idEven"
+				},
+				{
+					"name": "join1"
 				}
 			],
 			"scriptLines": [
@@ -75,8 +78,13 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> source2",
-				"source1 filter(and(equals(country, \"Indonesia\"),greater(salary, 1000))) ~> filter1",
-				"filter1 derive(column1 = mod(id, 2)==0) ~> idEven",
+				"join1 filter(and(equals(source1@country, \"Indonesia\"),greater(source1@salary, 1000))) ~> filter1",
+				"filter1 derive(column1 = mod(source1@id, 2)==0) ~> idEven",
+				"source1, source2 join(source1@first_name == source2@first_name,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
 				"idEven sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
